@@ -20,5 +20,6 @@
 <li>middleware koji blokira prikaz (show/edit) studenata kojima je mjesto null</li>
 
 <li>2 testa (svaki ima 3 metode) i prolaze</li>
+<li>Dodati još CI i CD process</li>
 </ul>
 @endsection

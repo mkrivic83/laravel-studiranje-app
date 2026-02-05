@@ -1,0 +1,20 @@
+mysql://root:kZwsKPlFlkALUcIbeiajZtVhOMxPeakK@yamabiko.proxy.rlwy.net:40668/railway
+
+flyctl secrets set APP_ENV=production
+flyctl secrets set APP_DEBUG=false
+flyctl secrets set APP_URL=https://laravel-studiranje-app.fly.dev
+flyctl secrets set DB_CONNECTION=mysql
+flyctl secrets set DB_HOST=yamabiko.proxy.rlwy.net
+flyctl secrets set DB_PORT=40668
+flyctl secrets set DB_DATABASE=railway
+flyctl secrets set DB_USERNAME=root
+flyctl secrets set DB_PASSWORD=kZwsKPlFlkALUcIbeiajZtVhOMxPeakK
+
+base64:v5wUHdOup+VfLUCRIG7tr3gtbUvgvodWtl03azoiACI=
+
+flyctl secrets set APP_KEY="base64:v5wUHdOup+VfLUCRIG7tr3gtbUvgvodWtl03azoiACI="
+
+
+token:
+
+FlyV1 fm2_lJPECAAAAAAAEVwuxBCkbb5QEE0h4vCFDgZTLELDwrVodHRwczovL2FwaS5mbHkuaW8vdjGWAJLOABZV/R8Lk7lodHRwczovL2FwaS5mbHkuaW8vYWFhL3YxxDzuAoF+GMVcPrIOy8LQb/J4bPJvPmXAugvB7DYuta4Ts6DfrTiadBetYZEHSH4hEmHIpiXfdW+FsEKBEmzETkyp3nKzMYYJR/FfQYr4nkPR+UdSuqmB85inNuqHpmy6OtgDC9JVJxea7AMtzHQESPlpJuJTNpP8xCxyWalLWPoWsN1xnrCr0ZfTJnRcqw2SlAORgc4Az/PIHwWRgqdidWlsZGVyH6J3Zx8BxCBTmyvvGKVN7jUf+h7ZDkWMwWB3/YStaxeOpYfI+C88lA==,fm2_lJPETkyp3nKzMYYJR/FfQYr4nkPR+UdSuqmB85inNuqHpmy6OtgDC9JVJxea7AMtzHQESPlpJuJTNpP8xCxyWalLWPoWsN1xnrCr0ZfTJnRcq8QQmUzmdSOrU7Lypx9q0urztMO5aHR0cHM6Ly9hcGkuZmx5LmlvL2FhYS92MZgEks5phMSvzo8cys0XzgAVb8QKkc4AFW/EDMQQFOlEtiuRN1w0X69rE4Ucf8QgBzh4J6/FT83eBxKRMy8tLaVtNPwg+IW1P4m2BgiHeJ0=
