@@ -1,4 +1,4 @@
-name: CI za Studiranje
+name: CI + CD (Studiranje)
 
 on:
   push:
@@ -7,7 +7,8 @@ on:
     branches: ["main"]
 
 jobs:
-  tests:
+  ci:
+    name: CI - Tests
     runs-on: ubuntu-latest
 
     services:
@@ -25,21 +26,17 @@ jobs:
           --health-retries=5
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: "8.2"
           extensions: mbstring, pdo_mysql
-          coverage: none
 
-      - name: Copy env
-        run: cp .env.example .env
-
-      - name: Generate app key
-        run: php artisan key:generate
+      - run: cp .env.example .env
+      - run: composer install --no-interaction --prefer-dist
+      - run: php artisan key:generate
 
       - name: Run migrations
         run: php artisan migrate --force
@@ -47,7 +44,6 @@ jobs:
           APP_ENV: testing
           DB_CONNECTION: mysql
           DB_HOST: 127.0.0.1
-          DB_PORT: 3306
           DB_DATABASE: laravel_test
           DB_USERNAME: root
           DB_PASSWORD: root
@@ -58,7 +54,21 @@ jobs:
           APP_ENV: testing
           DB_CONNECTION: mysql
           DB_HOST: 127.0.0.1
-          DB_PORT: 3306
           DB_DATABASE: laravel_test
           DB_USERNAME: root
           DB_PASSWORD: root
+
+  cd:
+    name: CD - Deploy to Fly.io
+    needs: ci
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: superfly/flyctl-actions/setup-flyctl@v1
+
+      - name: Deploy
+        run: flyctl deploy --remote-only --app voznipark-app-working-vjezba1
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}

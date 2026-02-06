@@ -85,7 +85,7 @@ class StudentCrudTest extends TestCase
         $student->delete();
 
         $this->assertDatabaseMissing('studenti', [
-            'id' => $student->id,
+            'id' => $student->id,jesmoje
         ]);
     }
 }

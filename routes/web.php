@@ -22,8 +22,10 @@ Route::get('studenti/{student}', [StudentController::class, 'show'])
 Route::middleware('student.mjesto')->group(function () {
     Route::get('studenti/{student}/edit', [StudentController::class, 'edit'])->name('studenti.edit');
     Route::put('studenti/{student}', [StudentController::class, 'update'])->name('studenti.update');
-    Route::delete('studenti/{student}', [StudentController::class, 'destroy'])->name('studenti.destroy');
+    
 });
+
+Route::delete('studenti/{student}', [StudentController::class, 'destroy'])->name('studenti.destroy');
 
 // Link1/Link2/Link3 iz layouta da ne pucaju:
 Route::get('/link1', fn() => redirect()->route('studenti.index'));
